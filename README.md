@@ -1,28 +1,75 @@
-**Personal Portfolio Website**
-This is a personal portfolio website created to showcase my skills, projects, and experience as a web developer. It features sections like Home, About, Services, Skills, and Contact, with smooth animations, a responsive design, and interactive elements.
+# React + TypeScript + Vite
 
-Features
-Responsive Design: The website is mobile-friendly and adapts to various screen sizes (desktop, tablet, mobile).
-Smooth Scroll: Clickable navigation links scroll smoothly to the respective sections on the page.
-Navbar Toggle: On smaller screens, the navbar switches to a hamburger menu for easier navigation.
-Skills Section: Animated progress bars that show my proficiency in various web development skills.
-Social Links: Direct links to my social media profiles (GitHub, LinkedIn, Twitter, and Email).
-Hover Effects: Interactive hover effects on links, buttons, and skill items.
-Animations: Text animations and transitions to add dynamism to the website.
-**Technologies Used**
-HTML5: Markup structure of the website.
-CSS3: Styling the website, including Flexbox and Grid Layouts for responsiveness.
-JavaScript: Adding interactivity and animations to the website.
-Boxicons: Used for social media icons.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
+Currently, two official plugins are available:
 
-Feel free to customize the following sections to make this portfolio your own:
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-Home Section: Replace the profile image (timo.jpg) with your own photo. Change the text to reflect your name and introduction.
-Skills Section: Update the skill names and progress percentages to match your own skills. You can add more skills by copying and modifying the existing <div class="skill-item"> blocks.
-Social Media Links: Update the social media links in the Home section with your own URLs (LinkedIn, GitHub, Twitter, etc.).
-About Section: Modify the text in the "About" section to provide more details about yourself.
-Contributions
-Feel free to fork the repository and submit pull requests for improvements. 
+## React Compiler
 
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
+## Expanding the ESLint configuration
+
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+
+```js
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+
+      // Remove tseslint.configs.recommended and replace with this
+      tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      tseslint.configs.stylisticTypeChecked,
+
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+
+```
+
+You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
+
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+
+```
