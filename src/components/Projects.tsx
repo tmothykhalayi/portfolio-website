@@ -1,4 +1,4 @@
-import { Github, ExternalLink } from 'lucide-react';
+import { Code2, ExternalLink } from 'lucide-react';
 
 const projects = [
   {
@@ -82,7 +82,7 @@ export default function Projects() {
                     href={project.github}
                     className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-primary-600/20 hover:bg-primary-600/40 rounded-lg border border-primary-600/30 transition-colors"
                   >
-                    <Github size={16} />
+                    <Code2 size={16} />
                     <span className="text-sm font-medium">Code</span>
                   </a>
                   <a

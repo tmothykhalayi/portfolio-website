@@ -1,4 +1,4 @@
-import { Mail, Github, Linkedin, Twitter } from 'lucide-react';
+import { BriefcaseBusiness, Code2, Mail, MessageCircle } from 'lucide-react';
 import { useState } from 'react';
 
 export default function Contact() {
@@ -72,9 +72,9 @@ export default function Contact() {
               <p className="text-sm text-gray-400 mb-4">Follow me on social media:</p>
               <div className="flex gap-4">
                 {[
-                  { icon: Github, label: 'GitHub', href: '#' },
-                  { icon: Linkedin, label: 'LinkedIn', href: '#' },
-                  { icon: Twitter, label: 'Twitter', href: '#' },
+                  { icon: Code2, label: 'GitHub', href: '#' },
+                  { icon: BriefcaseBusiness, label: 'LinkedIn', href: '#' },
+                  { icon: MessageCircle, label: 'Twitter', href: '#' },
                 ].map(({ icon: Icon, label, href }) => (
                   <a
                     key={label}
