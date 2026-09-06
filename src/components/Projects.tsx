@@ -10,6 +10,7 @@ const projects = [
     github: '#',
     live: '#',
   },
+  
   {
     id: 2,
     title: 'Task Management App',
